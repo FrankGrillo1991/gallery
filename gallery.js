@@ -10,7 +10,7 @@ function open(i){
   idx = i;
   full.src = links[idx].href;
   lightbox.hidden = false;
-  closeBtn.focus();
+    lightbox.focus(); // Focus the lightbox container for accessibility
 }
 function move(d){
   idx = (idx + d + links.length) % links.length;
@@ -25,4 +25,25 @@ window.addEventListener('keydown', (e)=>{
   if(e.key==='Escape') lightbox.hidden = true;
   if(e.key==='ArrowLeft') move(-1);
   if(e.key==='ArrowRight') move(1);
+});
+
+// Focus trap for lightbox
+lightbox.addEventListener('keydown', function(e) {
+  if (lightbox.hidden) return;
+  const focusable = [closeBtn, prev, next];
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (e.key === 'Tab') {
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
 });

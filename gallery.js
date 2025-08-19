@@ -1,3 +1,4 @@
+
 const links = Array.from(document.querySelectorAll('#grid a'));
 const lightbox = document.getElementById('lightbox');
 const full = document.getElementById('full');
@@ -5,6 +6,25 @@ const closeBtn = document.getElementById('close');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 let idx = -1;
+
+// Placeholder image (use your own path if you have a placeholder asset)
+const placeholder = 'https://via.placeholder.com/600x400?text=Image+not+found';
+
+// Add error handler to grid images
+document.querySelectorAll('#grid img').forEach(img => {
+  img.onerror = function() {
+    this.onerror = null;
+    this.src = placeholder;
+    this.alt = 'Image not found';
+  };
+});
+
+// Add error handler to lightbox image
+full.onerror = function() {
+  this.onerror = null;
+  this.src = placeholder;
+  this.alt = 'Image not found';
+};
 
 function open(i){
   idx = i;

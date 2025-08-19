@@ -7,6 +7,11 @@ main{max-width:1100px;margin:2rem auto;padding:0 1rem}
 .lightbox{position:fixed;inset:0;background:#000c;display:grid;place-items:center}
 .lightbox img{max-width:90vw;max-height:80vh;border-radius:.6rem}
 .lightbox button{position:absolute;background:#11172e;color:#eaf0ff;border:1px solid #2b335f;border-radius:.5rem;padding:.4rem .6rem}
+#close:focus, #prev:focus, #next:focus {
+	outline: 3px solid #4f8cff;
+	outline-offset: 2px;
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px #4f8cff;
+}
 #close{top:1rem;right:1rem}
 #prev{left:1rem;top:50%;transform:translateY(-50%)}
 #next{right:1rem;top:50%;transform:translateY(-50%)}

@@ -10,7 +10,7 @@ function open(i){
   idx = i;
   full.src = links[idx].href;
   lightbox.hidden = false;
-  full.focus();
+  closeBtn.focus();
 }
 function move(d){
   idx = (idx + d + links.length) % links.length;

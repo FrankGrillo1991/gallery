@@ -1,4 +1,3 @@
-
 // Step 5: Dynamic Image Loading
 const images = [
   { src: 'assets/pic1.webp', alt: 'Photo 1' },
@@ -76,6 +75,29 @@ lightbox.addEventListener('keydown', function(e) {
       if (document.activeElement === last) {
         e.preventDefault();
         first.focus();
+      }
+    }
+  }
+});
+
+// Swipe gesture support for mobile
+let startX = 0;
+full.addEventListener('touchstart', function(e) {
+  if (e.touches.length === 1) {
+    startX = e.touches[0].clientX;
+  }
+});
+full.addEventListener('touchend', function(e) {
+  if (e.changedTouches.length === 1) {
+    let endX = e.changedTouches[0].clientX;
+    let diff = endX - startX;
+    if (Math.abs(diff) > 50) { // swipe threshold
+      if (diff > 0) {
+        // Swipe right: previous image
+        move(-1);
+      } else {
+        // Swipe left: next image
+        move(1);
       }
     }
   }

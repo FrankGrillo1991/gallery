@@ -1,0 +1,12 @@
+body{margin:0;background:#0b1020;color:#eaf0ff;font-family:system-ui}
+main{max-width:1100px;margin:2rem auto;padding:0 1rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.grid img{width:100%;height:auto;display:block;border-radius:.5rem}
+@media (max-width: 768px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width: 480px){.grid{grid-template-columns:1fr}}
+.lightbox{position:fixed;inset:0;background:#000c;display:grid;place-items:center}
+.lightbox img{max-width:90vw;max-height:80vh;border-radius:.6rem}
+.lightbox button{position:absolute;background:#11172e;color:#eaf0ff;border:1px solid #2b335f;border-radius:.5rem;padding:.4rem .6rem}
+#close{top:1rem;right:1rem}
+#prev{left:1rem;top:50%;transform:translateY(-50%)}
+#next{right:1rem;top:50%;transform:translateY(-50%)}

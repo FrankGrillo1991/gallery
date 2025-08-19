@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Gallery</h1>
+    <div id="grid" class="grid" aria-live="polite">
+      <!-- Add your images into assets and list them here -->
+      <a href="assets/pic1.webp"><img src="assets/pic1.webp" alt="Photo 1" loading="lazy"></a>
+      <a href="assets/pic2.webp"><img src="assets/pic2.webp" alt="Photo 2" loading="lazy"></a>
+      <a href="assets/pic3.webp"><img src="assets/pic3.webp" alt="Photo 3" loading="lazy"></a>
+    </div>
+  </main>
+  <div id="lightbox" class="lightbox" hidden>
+    <button id="close" aria-label="Close">×</button>
+    <img id="full" alt="Full view">
+    <button id="prev" aria-label="Previous">‹</button>
+    <button id="next" aria-label="Next">›</button>
+  </div>
+  <script src="gallery.js" defer></script>
+</body>
+</html>

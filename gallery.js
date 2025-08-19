@@ -1,4 +1,17 @@
 
+// Step 5: Dynamic Image Loading
+const images = [
+  { src: 'assets/pic1.webp', alt: 'Photo 1' },
+  { src: 'assets/pic2.webp', alt: 'Photo 2' },
+  { src: 'assets/pic3.webp', alt: 'Photo 3' }
+  // Add more images here
+];
+
+const grid = document.getElementById('grid');
+grid.innerHTML = images.map(img =>
+  `<a href="${img.src}"><img src="${img.src}" alt="${img.alt}" loading="lazy"></a>`
+).join('');
+
 const links = Array.from(document.querySelectorAll('#grid a'));
 const lightbox = document.getElementById('lightbox');
 const full = document.getElementById('full');

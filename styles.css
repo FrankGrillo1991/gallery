@@ -4,8 +4,40 @@ main{max-width:1100px;margin:2rem auto;padding:0 1rem}
 .grid img{width:100%;height:auto;display:block;border-radius:.5rem}
 @media (max-width: 768px){.grid{grid-template-columns:1fr 1fr}}
 @media (max-width: 480px){.grid{grid-template-columns:1fr}}
+@media (max-width: 600px) {
+  .lightbox button {
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    min-width: 48px;
+    min-height: 48px;
+  }
+}
 .lightbox{position:fixed;inset:0;background:#000c;display:grid;place-items:center}
-.lightbox img{max-width:90vw;max-height:80vh;border-radius:.6rem}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: #000c;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(.4,0,.2,1);
+}
+.lightbox[hidden] {
+  opacity: 0;
+  pointer-events: none;
+}
+.lightbox:not([hidden]) {
+  opacity: 1;
+  pointer-events: auto;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: .6rem;
+  transition: box-shadow 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 8px 32px #0008;
+}
 .lightbox button{position:absolute;background:#11172e;color:#eaf0ff;border:1px solid #2b335f;border-radius:.5rem;padding:.4rem .6rem}
 #close:focus, #prev:focus, #next:focus {
 	outline: 3px solid #4f8cff;
